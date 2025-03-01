@@ -18,30 +18,29 @@
                 {% csrf_token %}
                 <input type="text" id="result" name="result" value="{{ result }}" class="flex mx-5">
                 <br>
-                <div class="flex items-center justify-center space-x-2">
+                <div class="flex items-center justify-center space-x-2"> <!-- for C and x -->
                     <button onclick="clearResult()" class="w-28 h-8 bg-gray-300 border-2 border-black rounded-lg">C</button>
                     <button onclick="appendToResult('*')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">x</button>
                 </div>
-                <div class="flex items-center justify-center space-x-2 my-2">
+                <div class="flex items-center justify-center space-x-2 my-2"> <!-- for 7, 8, 9, and / -->
                     <button onclick="appendToResult('7')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">7</button>
                     <button onclick="appendToResult('8')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">8</button>
                     <button onclick="appendToResult('9')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">9</button>
                     <button onclick="appendToResult('/')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">/</button>
                 </div>
-                <div class="flex items-center justify-center space-x-2 my-2">
+                <div class="flex items-center justify-center space-x-2 my-2"> <!-- for 4, 5, 6, and + -->
                     <button onclick="appendToResult('4')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">4</button>
                     <button onclick="appendToResult('5')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">5</button>
                     <button onclick="appendToResult('6')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">6</button>
                     <button onclick="appendToResult('+')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">+</button>
                 </div>
-                <div class="flex items-center justify-center space-x-2 my-2">
+                <div class="flex items-center justify-center space-x-2 my-2"> <!--for 1, 2, 3, and - -->
                     <button onclick="appendToResult('1')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">1</button>
                     <button onclick="appendToResult('2')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">2</button>
                     <button onclick="appendToResult('3')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">3</button>
                     <button onclick="appendToResult('-')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">-</button>
                 </div>
-
-                <div class="flex items-center justify-center space-x-2 my-2">
+                <div class="flex items-center justify-center space-x-2 my-2"> <!--for 0, ., and = -->
                     <button onclick="appendToResult('0')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">0</button>
                     <button onclick="appendToResult('.')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">.</button>
                     <button onclick="calculate()" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">=</button>
