@@ -1,0 +1,69 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% tailwind_css %}
+</head>
+
+<body>
+    <div class="flex items-center justify-center h-screen bg-gray-100">
+        <div class="bg-gray-200 p-4 border border-gray-700 rounded-lg shadow-lg">
+            <h3 class="text-center py-3">Calculator made with Tailwind</h3>
+            <form method="post" action="{% url 'calculator' %}">
+                {% csrf_token %}
+                <input type="text" id="result" name="result" value="{{ result }}" class="flex mx-5">
+                <br>
+                <div class="flex items-center justify-center space-x-2">
+                    <button onclick="clearResult()" class="w-28 h-8 bg-gray-300 border-2 border-black rounded-lg">C</button>
+                    <button onclick="appendToResult('*')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">x</button>
+                </div>
+                <div class="flex items-center justify-center space-x-2 my-2">
+                    <button onclick="appendToResult('7')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">7</button>
+                    <button onclick="appendToResult('8')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">8</button>
+                    <button onclick="appendToResult('9')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">9</button>
+                    <button onclick="appendToResult('/')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">/</button>
+                </div>
+                <div class="flex items-center justify-center space-x-2 my-2">
+                    <button onclick="appendToResult('4')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">4</button>
+                    <button onclick="appendToResult('5')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">5</button>
+                    <button onclick="appendToResult('6')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">6</button>
+                    <button onclick="appendToResult('+')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">+</button>
+                </div>
+                <div class="flex items-center justify-center space-x-2 my-2">
+                    <button onclick="appendToResult('1')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">1</button>
+                    <button onclick="appendToResult('2')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">2</button>
+                    <button onclick="appendToResult('3')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">3</button>
+                    <button onclick="appendToResult('-')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">-</button>
+                </div>
+
+                <div class="flex items-center justify-center space-x-2 my-2">
+                    <button onclick="appendToResult('0')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">0</button>
+                    <button onclick="appendToResult('.')" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">.</button>
+                    <button onclick="calculate()" class="w-8 h-8 bg-gray-300 border-2 border-black rounded-lg">=</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Update JavaScript functions to handle form submission
+        function appendToResult(value) {
+            document.getElementById('result').value += value;
+        }
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+        function calculate() {
+            try {
+                document.getElementById('result').value = eval(document.getElementById('result').value);
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
